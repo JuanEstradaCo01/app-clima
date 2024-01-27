@@ -1,0 +1,150 @@
+.contenedorPrincipalCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: .5rem auto;
+    max-width: 30rem;
+    height: 40rem;
+}
+
+.temperatura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temperaturaP {
+    font-size: 3rem;
+    margin-left: 3rem;
+    color: grey;
+    font-weight: bolder;
+}
+
+.celsius {
+    width: 7rem;
+    margin-left: -2rem;
+}
+
+.contenedorFormulario {
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(3, 119, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 75%;
+    height: 8rem;
+    margin-top: 1.5rem;
+}
+
+.contenedorFormulario h3{
+    color: rgb(6, 240, 240);
+}
+
+.contenedorPrincipalInfo {
+    background-image: linear-gradient(rgb(2, 112, 255), rgb(1, 8, 17));
+    width: 75%;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.icono {
+    display: flex;
+    width: 70%;
+    margin: auto;
+}
+
+.contenedorPrincipalInfo h2 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.grados {
+    width: 2rem;
+    margin-left: -.5rem;
+}
+
+.contenedorMaxMin {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 2rem;
+}
+
+.contenedorMaxMin p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.pEs {
+    margin-left: .5rem;
+}
+
+p {
+    text-align: center;
+}
+
+#inputFormulario {
+    height: 1.8rem;
+    border-radius: 1rem;
+    padding: .8rem;
+    border-color: transparent;
+    margin: 1rem;
+}
+
+#inputFormulario:hover {
+    background-color: rgb(170, 164, 164);
+    transform: scale(1.08);
+}
+
+.btnFormulario {
+    height: 1.8rem;
+    width: 4rem;
+    border-radius: 1rem;
+    background-color: rgb(177, 174, 194);
+    border-color: transparent;
+}
+
+.btnFormulario:hover {
+    background-color: rgb(59, 58, 58);
+    transform: scale(1.15);
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    .btnFormulario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    #inputFormulario {
+        padding: .35rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .contenedorPrincipalCard {
+        height: 80%;
+    }
+}
+
+.contenedorError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10rem auto;
+    text-align: center;
+}
+
+.contenedorError h1{
+    color: rgb(190, 50, 50);
+}
