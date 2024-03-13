@@ -3,7 +3,7 @@
 }
 
 .dot-spinner {
-  --uib-size: 90px;
+  --uib-size: 60px;
   --uib-speed: .9s;
   --uib-color: rgb(157, 224, 245);
 
