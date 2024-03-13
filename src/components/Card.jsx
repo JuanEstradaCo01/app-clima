@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import "../styles-components/card.css"
 import Icon from "./Icon"
 import Celsius from "./Centigrado"
+import Loader from "./Loader/Loader"
 
 function Card() {
 
     const [buscar, setBuscar] = useState("")
     const [valores, setValores] = useState("")
     const [icono, setIcono] = useState("")
-    const [valor, setValor] = useState("Bogota")
+    const [valor, setValor] = useState("Pereira")
 
     const lang = "es"
     const units = "metric"
@@ -22,7 +23,10 @@ function Card() {
     const enviarBusqueda = (e) => {
         e.preventDefault()
         document.getElementById("formulario").reset()
-        setValor(buscar)
+        setTimeout(() => {
+            setValor(buscar)
+        }, 600)
+        setValores("")
     }
 
     //Consumo la API con FETCH:
@@ -51,35 +55,41 @@ function Card() {
         get()
     }, [valor])
 
+    if (valores === "") {
+        return <Loader />
+    }
+
     return (
         <>
             <div className='contenedorPrincipalCard'>
                 {/*Valido si la ciudad existe*/}
                 {(valores) ? (
                     <>
-                        <div className='contenedorFormulario'>
-                            <h3>Ingresa una ciudad:</h3>
-                            <form id='formulario'>
-                                <input id='inputFormulario' name='buscar' onChange={valoresIngresados} type="text" placeholder='Buscar ciudad' />
-                                <button className='btnFormulario' type='submit' onClick={enviarBusqueda}>Buscar</button>
-                            </form>
-                        </div>
-                        <div className='contenedorPrincipalInfo'>
-                            <h2>{valores.name}, {valores.sys.country}</h2>
-                            <div>
-                                <img className='icono' src={Icon(icono)} alt="icono" />
-                                <p>{valores.weather[0].description}</p>
+                        {(valores === "") ? <Loader /> : <>
+                            <div className='contenedorFormulario'>
+                                <h3>Ingresa una ciudad:</h3>
+                                <form id='formulario'>
+                                    <input id='inputFormulario' name='buscar' onChange={valoresIngresados} type="text" placeholder='Buscar ciudad' />
+                                    <button className='btnFormulario' type='submit' onClick={enviarBusqueda}>Buscar</button>
+                                </form>
                             </div>
-                            <div className='temperatura'>
-                                <p className='temperaturaP'>{Math.round(valores.main.temp)}</p>
-                                <img className='celsius' src={Celsius(icono)} alt="Celsius" />
+                            <div className='contenedorPrincipalInfo'>
+                                <h2>{valores.name}, {valores.sys.country}</h2>
+                                <div>
+                                    <img className='icono' src={Icon(icono)} alt="icono" />
+                                    <p>{valores.weather[0].description}</p>
+                                </div>
+                                <div className='temperatura'>
+                                    <p className='temperaturaP'>{Math.round(valores.main.temp)}</p>
+                                    <img className='celsius' src={Celsius(icono)} alt="Celsius" />
+                                </div>
+                                <p>Humedad: {valores.main.humidity}%</p>
+                                <div className='contenedorMaxMin'>
+                                    <p>{Math.round(valores.main.temp_max)}</p><img className='grados' src={Celsius(icono)} alt="Celsius" />|
+                                    <p className='pEs'>{Math.round(valores.main.temp_min)}<img className='grados' src={Celsius(icono)} alt="Celsius" /></p>
+                                </div>
                             </div>
-                            <p>Humedad: {valores.main.humidity}%</p>
-                            <div className='contenedorMaxMin'>
-                                <p>{Math.round(valores.main.temp_max)}</p><img className='grados' src={Celsius(icono)} alt="Celsius" />|
-                                <p className='pEs'>{Math.round(valores.main.temp_min)}<img className='grados' src={Celsius(icono)} alt="Celsius" /></p>
-                            </div>
-                        </div>
+                        </>}
                     </>) : (
                     <div className='contenedorError'>
                         <h1>¡Ciudad no encontrada!</h1>
@@ -92,7 +102,6 @@ function Card() {
                         </div>
                     </div>
                 )}
-
             </div>
         </>
     )
