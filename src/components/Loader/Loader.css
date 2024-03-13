@@ -1,8 +1,14 @@
+.contenedorLoader{
+  margin: auto;
+}
+
 .dot-spinner {
-  --uib-size: 100px;
+  --uib-size: 60px;
   --uib-speed: .9s;
   --uib-color: rgb(157, 224, 245);
 
+  width: 50px;
+  height: 50px;
   position: absolute;
   top: 50%;
   left: 50%;

@@ -69,7 +69,7 @@ function Card() {
                             <div className='contenedorFormulario'>
                                 <h3>Ingresa una ciudad:</h3>
                                 <form id='formulario'>
-                                    <input id='inputFormulario' name='buscar' onChange={valoresIngresados} type="text" placeholder='Buscar ciudad' />
+                                    <input id='inputFormulario' name='buscar' onChange={valoresIngresados} type="text" placeholder='Buscar ciudad' required />
                                     <button className='btnFormulario' type='submit' onClick={enviarBusqueda}>Buscar</button>
                                 </form>
                             </div>
@@ -96,7 +96,7 @@ function Card() {
                         <div className='contenedorFormulario'>
                             <form id='formulario'>
                                 <h3>Ingresa una ciudad:</h3>
-                                <input id='inputFormulario' name='buscar' onChange={valoresIngresados} type="text" placeholder='Buscar nuevamente' />
+                                <input id='inputFormulario' name='buscar' onChange={valoresIngresados} type="text" placeholder='Buscar nuevamente' required />
                                 <button className='btnFormulario' type='submit' onClick={enviarBusqueda}>Buscar</button>
                             </form>
                         </div>
