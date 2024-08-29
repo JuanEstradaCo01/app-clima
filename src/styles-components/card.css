@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
-    margin: 1.5rem auto;
+    margin: 3rem auto;
     max-width: 30rem;
 }
 
@@ -29,7 +29,7 @@
 .contenedorFormulario {
     border-radius: 1rem;
     margin-bottom: 1rem;
-    background-color: rgb(25, 121, 211);
+    background-color: rgb(61, 194, 206);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@
 }
 
 .contenedorPrincipalInfo {
-    background-color: rgb(38, 145, 245);
+    background-color: rgb(61, 194, 206);
     width: 75%;
     border-radius: 1rem;
     padding: 1rem;
